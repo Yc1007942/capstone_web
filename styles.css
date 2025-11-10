@@ -98,6 +98,12 @@ body::before {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .header-tagline {
@@ -150,6 +156,18 @@ main {
               0 0 0 1px rgba(77, 212, 172, 0.1),
               inset 0 1px 0 rgba(255, 255, 255, 0.05);
   z-index: 50;
+  animation: navFloatIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+}
+
+@keyframes navFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
 }
 
 .floating-nav__label {
@@ -183,6 +201,23 @@ main {
   border-radius: 10px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
+}
+
+.floating-nav li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-nav li a:hover::before {
+  transform: scaleY(1);
 }
 
 .floating-nav li a span {
@@ -204,6 +239,16 @@ main {
   opacity: 1;
 }
 
+.floating-nav li a.active {
+  color: var(--accent);
+  background: rgba(77, 212, 172, 0.15);
+}
+
+.floating-nav li a.active span {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 /* Parallax sparks */
 .parallax-stage {
   position: fixed;
@@ -219,24 +264,39 @@ main {
   border-radius: 50%;
   filter: blur(40px);
   opacity: 0.4;
+  animation: sparkPulse 8s ease-in-out infinite;
+}
+
+@keyframes sparkPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
 }
 
 .spark-one {
   top: 10%;
   left: 15%;
   background: radial-gradient(circle, rgba(72, 245, 198, 0.7), transparent 65%);
+  animation-delay: 0s;
 }
 
 .spark-two {
   bottom: 15%;
   right: 20%;
   background: radial-gradient(circle, rgba(128, 152, 255, 0.65), transparent 60%);
+  animation-delay: 2s;
 }
 
 .spark-three {
   top: 45%;
   right: 5%;
   background: radial-gradient(circle, rgba(249, 178, 255, 0.5), transparent 60%);
+  animation-delay: 4s;
 }
 
 section {
@@ -255,6 +315,17 @@ section {
   font-size: clamp(2.4rem, 6vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .eyebrow {
@@ -262,6 +333,18 @@ section {
   letter-spacing: 0.4em;
   color: var(--accent);
   font-size: 0.75rem;
+  animation: fadeInUp 0.8s ease backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero__copy {
@@ -390,6 +473,16 @@ section {
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.identity-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  border-color: rgba(77, 212, 172, 0.4);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 .identity-card::before {
@@ -461,9 +554,27 @@ section {
   padding: 1.75rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(77, 212, 172, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.project-card:hover::before {
+  left: 100%;
 }
 
 .project-card::after {
@@ -484,9 +595,10 @@ section {
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(77, 212, 172, 0.5);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(77, 212, 172, 0.6);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(77, 212, 172, 0.2);
 }
 
 .collab-banner {
@@ -551,12 +663,34 @@ section {
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
-  transition: transform 0.4s ease, border-color 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.member-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--radius) - 4px);
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                               rgba(77, 212, 172, 0.15), 
+                               transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.member-card:hover::after {
+  opacity: 1;
 }
 
 .member-photo {
   margin: 0;
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
@@ -568,15 +702,19 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+  position: relative;
 }
 
 .member-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .member-photo.fallback {
@@ -584,7 +722,7 @@ section {
   background: linear-gradient(135deg, rgba(0, 29, 61, 0.6), rgba(0, 16, 35, 0.8));
   color: var(--accent-2);
   font-weight: 700;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   letter-spacing: 0.15em;
 }
 
@@ -613,8 +751,10 @@ section {
 }
 
 .member-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(128, 152, 255, 0.5);
+  transform: translateY(-12px);
+  border-color: rgba(77, 212, 172, 0.6);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(77, 212, 172, 0.2);
 }
 
 .values {
@@ -675,11 +815,38 @@ section {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s ease, 
+              background 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
 }
 
 .btn.primary {
@@ -701,8 +868,12 @@ section {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 .pill {
@@ -794,21 +965,67 @@ section {
   }
 }
 
+/* Ripple effect for buttons */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cursor dots styling */
+.cursor-dot {
+  mix-blend-mode: screen;
+  filter: blur(1px);
+}
+
+/* Loading state */
+body {
+  opacity: 1;
+}
+
 /* Responsive images */
 @media (max-width: 900px) {
   .member-photo {
     max-width: 280px;
     margin: 0 auto;
   }
+  
+  .team__grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
   .member-photo {
-    max-width: 200px;
+    max-width: 220px;
+    width: 220px;
+    height: 220px;
   }
   
   .member-photo.fallback {
     font-size: 1.5rem;
+  }
+  
+  .team__grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin: 0 auto;
   }
   
   body {
@@ -941,6 +1158,11 @@ section {
     transform: translateY(-2px) scale(1.05);
     background: rgba(77, 212, 172, 0.15);
   }
+  
+  .floating-nav li a.active {
+    background: rgba(77, 212, 172, 0.2);
+    transform: scale(1.08);
+  }
 }
 
 /* Small mobile */
@@ -971,5 +1193,15 @@ section {
 
   main {
     padding-bottom: 5.5rem;
+  }
+  
+  /* Disable cursor trail on mobile */
+  .cursor-dot {
+    display: none !important;
+  }
+  
+  /* Disable tilt effect on mobile */
+  .member-card {
+    transform: none !important;
   }
 }
