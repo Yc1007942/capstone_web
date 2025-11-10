@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novira - BYOD </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="logo">Novira</div>
+      <div class="header-tagline">
+        <p>BYOD - Be Your Own Designer</p>
+        <span>Turning "Does it fit?" to Add to cart.</span>
+      </div>
+      <button class="btn ghost">Contact</button>
+    </header>
+
+    <div class="parallax-stage" aria-hidden="true">
+      <span class="parallax-spark spark-one" data-parallax data-speed="0.25"></span>
+      <span class="parallax-spark spark-two" data-parallax data-speed="0.12"></span>
+      <span class="parallax-spark spark-three" data-parallax data-speed="-0.18"></span>
+    </div>
+
+    <nav class="floating-nav" aria-label="Section navigation">
+      <span class="floating-nav__label">Navigate</span>
+      <ul>
+        <li><a href="#identity"><span>01</span>Brand</a></li>
+        <li><a href="#problem"><span>02</span>Problem</a></li>
+        <li><a href="#solution"><span>03</span>Idea</a></li>
+        
+        <li><a href="#team"><span>04</span>Team</a></li>
+        <li><a href="#contact"><span>05</span>Connect</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero" id="brand">
+        <div class="hero__content" data-reveal>
+          <p class="eyebrow">Novira - BYOD - Be Your Own Designer</p>
+          <h1>Turning "Does it fit?" into confident add-to-cart moments.</h1>
+          <p class="hero__copy">
+            Novira is an intelligent collaboration surface for Singapore's BTO homeowners.
+            We let couples visualize, validate, and cost their future flats long before key
+            collection so brands like IKEA win trust at the very first mood board.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="#mission">Explore the Mission</a>
+            <a class="btn ghost" href="#team">Meet the Team</a>
+          </div>
+          <!-- <div class="hero__note">
+            <span class="pill">For businesses</span>
+            "Turning 'Does it fit?' to Add to cart."
+          </div> -->
+        </div>
+        <div class="hero__visual" data-reveal>
+          <div class="orb orb--one"></div>
+          <div class="orb orb--two"></div>
+          <div class="hero__panel">
+            <div class="panel__header">
+              BTO Readiness Signal
+              <span class="pulse"></span>
+            </div>
+            <div class="panel__metrics">
+              <div>
+                <span>Cart confidence</span>
+                <strong>+32%</strong>
+              </div>
+              <div>
+                <span>Regulation checks</span>
+                <strong>Auto</strong>
+              </div>
+              <div>
+                <span>Cost clarity</span>
+                <strong>Realtime</strong>
+              </div>
+            </div>
+            <div class="panel__graph"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="brand-identity" id="identity">
+        <div class="section-heading" data-reveal>
+          
+          <h2>Novira anchors the BYOD mindset with calm intelligence.</h2>
+        </div>
+        <div class="brand-grid">
+          <article class="identity-card" data-reveal>
+            <h3>Promise</h3>
+            <p>
+              "BYOD - Be Your Own Designer" empowers homeowners to experiment safely with
+              pro-grade tooling, financial clarity, and compliance guidance baked in.
+            </p>
+          </article>
+          <article class="identity-card" data-reveal>
+            <h3>Voice</h3>
+            <p>
+              Conversational, validating, and data-backed. Every interaction reduces the
+              anxiety tied to multi-year BTO journeys.
+            </p>
+          </article>
+          <article class="identity-card" data-reveal>
+            <h3>Manifesto</h3>
+            <ul>
+              <li>Democratize interior intelligence.</li>
+              <li>Respect HDB regulations without jargon.</li>
+              <li>Turn analysis paralysis into decisive action.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="mission" id="mission">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Our mission</p>
+          <h2>To democratize professional-grade interior design for every homeowner.</h2>
+          <p>
+            Regardless of budget or renovation experience, Novira helps people visualize and
+            achieve their dream space while staying compliant, on budget, and emotionally in
+            control.
+          </p>
+        </div>
+      </section>
+
+      <!-- <section class="problem" id="problem">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Problem statement</p>
+          <h2>
+            How might we assist young couples purchasing their first BTO flats in Singapore
+            plan their home renovations?
+          </h2>
+          <p>
+            We focus on an affordable path to regulation-compliant spatial planning, cost
+            estimation, and procurement - well before keys are collected.
+          </p>
+        </div>
+        <div class="problem__grid">
+          <article class="problem-card" data-reveal>
+            <h3>Knowledge gaps</h3>
+            <p>
+              BTO owners are unfamiliar with spatial planning and HDB regulations. Guidance
+              today lives across forums, PDFs, and pricey consultants.
+            </p>
+          </article>
+          <article class="problem-card" data-reveal>
+            <h3>Cost fog</h3>
+            <p>
+              Interior designers are expensive, and quotes often exclude hidden constraints.
+              Couples lack a single source of truth for renovation budgets.
+            </p>
+          </article>
+          <article class="problem-card" data-reveal>
+            <h3>Decision paralysis</h3>
+            <p>
+              Without confidence in layout fit or compliance, carts get abandoned and
+              renovation timelines stretch, delaying business revenue and livable homes.
+            </p>
+          </article>
+        </div>
+        <div class="target-callout" data-reveal>
+          <span class="pill">Target group</span>
+          Primary audience: Singapore BTO owners (first-time homeowners planning 3-4 years
+          ahead).
+        </div>
+      </section> -->
+
+      <section class="solution" id="solution">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">The idea</p>
+          <h2>Novira orchestrates spatial intelligence, AI guidance, and retail-ready flows.</h2>
+        </div>
+        <div class="project__grid">
+          <article class="project-card" data-reveal>
+            <h3>3D Scan Furniture</h3>
+            <p>
+              Capture furniture via LiDAR or phone scans to anchor true-to-scale references.
+            </p>
+          </article>
+          <article class="project-card" data-reveal>
+            <h3>Preset layouts</h3>
+            <p>
+              AI suggests ready-to-use layouts per HDB typology to jump-start planning rituals.
+            </p>
+          </article>
+          <article class="project-card" data-reveal>
+            <h3>AI guidelines</h3>
+            <p>
+              Chatbot grounded in HDB regulations answers "can I?" questions instantly.
+            </p>
+          </article>
+          <article class="project-card" data-reveal>
+            <h3>Personalized co-pilot</h3>
+            <p>
+              The same chatbot refines layouts, flows, and storage based on habits and
+              inspiration boards.
+            </p>
+          </article>
+          <article class="project-card" data-reveal>
+            <h3>Cost & procurement</h3>
+            <p>
+              Real-time bill of materials, tiered estimates, and retailer-specific carts.
+            </p>
+          </article>
+          <article class="project-card" data-reveal>
+            <h3>Partnerships</h3>
+            <p>
+              bla bla bla 
+            </p>
+          </article>
+        </div>
+        <!-- <div class="collab-banner" data-reveal>
+          Potential collaboration: IKEA's embedded retail + HDB regulation APIs ensure every
+          cart item is installation-ready.
+        </div> -->
+      </section>
+
+     
+
+      <section class="team" id="team">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Core crew</p>
+          <h2>Final-year SUTD makers blending design, AI, and architecture.</h2>
+        </div>
+        <div class="team__grid">
+          <article class="member-card" data-reveal>
+            <figure class="member-photo fallback">
+              <span>YM</span>
+            </figure>
+            <div>
+              <h3>Yee Mon</h3>
+              <p class="role">Design & Artificial Intelligence, SUTD</p>
+              <p class="quote">"Every anxious tap in a cart can become a moment of delight."</p>
+              <p>
+                Maps service blueprints end-to-end and ensures the BYOD narrative feels warm,
+                inclusive, and regulation-aware.
+              </p>
+            </div>
+          </article>
+
+          <article class="member-card" data-reveal>
+            <figure class="member-photo">
+              <img src="static/aika.png" alt="Portrait of Aika" loading="lazy" />
+            </figure>
+            <div>
+              <h3>Aika</h3>
+              <p class="role">Design & Artificial Intelligence, SUTD</p>
+              <p class="quote">"Spatial computing should feel like painting with light."</p>
+              <p>
+                Leads interaction design, motion grammar, and accessibility so complex
+                planning flows remain calm.
+              </p>
+            </div>
+          </article>
+
+          <article class="member-card" data-reveal>
+            <figure class="member-photo">
+              <img src="static/ian.png" alt="Portrait of Ian Verella Joseph" loading="lazy" />
+            </figure>
+            <div>
+              <h3>Ian Verella Joseph</h3>
+              <p class="role">Computer Science & Design, SUTD</p>
+              <p class="quote">"If the data is trustworthy, confidence skyrockets."</p>
+              <p>
+                Builds the core platform, AI copilots, and integration APIs to bridge IKEA
+                catalogs and HDB knowledge graphs.
+              </p>
+            </div>
+          </article>
+
+          <article class="member-card" data-reveal>
+            <figure class="member-photo">
+              <img src="static/yuchuan.png" alt="Portrait of Huang Yuchuan" loading="lazy" />
+            </figure>
+            <div>
+              <h3>Huang Yuchuan</h3>
+              <p class="role">Computer Science & Design, SUTD</p>
+              <p class="quote">"Immersive planning must mirror how couples actually decide."</p>
+              <p>
+                Leads data pipelines, performance, and ensures 3D scans translate into
+                realistic layouts and shopping carts.
+              </p>
+            </div>
+          </article>
+
+          <article class="member-card" data-reveal>
+            <figure class="member-photo">
+              <img src="static/yijun.png" alt="Portrait of Low Yi Jun" loading="lazy" />
+            </figure>
+            <div>
+              <h3>Low Yi Jun</h3>
+              <p class="role">Architecture & Sustainable Design, SUTD</p>
+              <p class="quote">"Compliance can be beautiful when embedded early."</p>
+              <p>
+                Ensures every design honors HDB codes, daylight studies, and sustainable
+                materials without sacrificing aesthetics.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact__card" data-reveal>
+          <h2>Build with Novira</h2>
+          <p>
+            We are ready to pair with IKEA, HDB, and interior designers to make your BTO dreams come true
+          </p>
+          <div class="contact__actions">
+            <button class="btn primary">Our Contact</button>
+            <button class="btn ghost">Download the deck</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Novira - BYOD for every BTO.</p>
+      <div class="footer__links">
+        <a href="#brand">Back to top</a>
+        <a href="mailto:yuchuanhi@gmail.com">yuchuanhi@gmail.com</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
